@@ -28,7 +28,23 @@ enum ColType {
 	$VBoxContainer, $VBoxContainer3
 ]
 
+@onready var upper_total_cells: Array[Button] = [
+	$VBoxContainer2/Total1,
+	$VBoxContainer2/Bonus,
+	$VBoxContainer2/Total2
+]
+
 @export var col_type: ColType 
+
+var upper_total: int = -1
+var lower_total: int = -1
+
+var total: int:
+	get():
+		if upper_total >= 0 and lower_total >= 0:			
+			return upper_total + lower_total
+		else:
+			return 0
 
 signal cell_clicked(col: TableCol, cell_id: int)
 
@@ -143,4 +159,37 @@ func set_value(id: int, history: Array[Array]) -> int:
 	var value: int = candidates[id]
 	var cell: Button = cells[id]	
 	cell.text = str(value)
+	
+	calculate_upper_total()
+	calculate_lower_total()
+	
 	return value
+
+func _get_upper_cells() -> Array[Button]:
+	return [0, 1, 2, 3, 4, 5].map(func (i): return cells[i])
+
+func _get_lower_cells() -> Array[Button]:
+	return [6, 7, 8, 9, 10, 11, 12].map(func (i): return cells[i])
+
+func is_upper_finished() -> bool:
+	return _get_upper_cells().any(func (cell): return cell.text == "")
+	
+func is_lower_finished() -> bool:
+	return _get_lower_cells().any(func (cell): return cell.text == "")
+
+func calculate_upper_total() -> void: 
+	if !is_upper_finished(): return
+	var bonus: int = 0
+	var first: int = _get_upper_cells().reduce(func(acc, cell): 
+		acc = acc + int(cell.text)
+		return acc
+	)
+	if first >= 60: bonus = 30
+	upper_total = first + bonus
+	
+	upper_total_cells[0].text = str(first)
+	upper_total_cells[1].text = str(bonus)
+	upper_total_cells[2].text = str(upper_total)
+	
+func calculate_lower_total() -> void: 
+	pass
