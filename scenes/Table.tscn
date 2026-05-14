@@ -1,0 +1,154 @@
+[gd_scene format=3 uid="uid://dgrjmmmp27flo"]
+
+[ext_resource type="PackedScene" uid="uid://bulrcsavnu0hq" path="res://scenes/TableFixed.tscn" id="1_so1t7"]
+[ext_resource type="Script" uid="uid://elmrfkahxgvv" path="res://scripts/table.gd" id="1_uoil6"]
+[ext_resource type="PackedScene" uid="uid://bq4cvohpn63u0" path="res://scenes/TableCol.tscn" id="1_xa0as"]
+[ext_resource type="Texture2D" uid="uid://bk4cao3blkmxn" path="res://images/ArrowDown.png" id="2_7q8ky"]
+[ext_resource type="Theme" uid="uid://brxpgotclekwq" path="res://styles/table_theme.tres" id="3_1euqw"]
+[ext_resource type="Texture2D" uid="uid://cr3sehoulq4d7" path="res://images/ArrowUp.png" id="3_an7fc"]
+[ext_resource type="Texture2D" uid="uid://18210rxdk0qy" path="res://images/ArrowRight.png" id="6_an7fc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uoil6"]
+
+[node name="Table" type="PanelContainer" unique_id=1059167151]
+offset_right = 326.0
+offset_bottom = 503.0
+script = ExtResource("1_uoil6")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1202859886]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=740882050]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=241613655]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=78011734]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=956954632]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("3_1euqw")
+theme_type_variation = &"2_Round"
+disabled = true
+text = "MPB"
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=130125702]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("3_1euqw")
+theme_type_variation = &"2_Round"
+icon = ExtResource("2_7q8ky")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1180991065]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("3_1euqw")
+theme_type_variation = &"2_Round"
+icon = ExtResource("3_an7fc")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button4" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=971636359]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("3_1euqw")
+theme_type_variation = &"2_Round"
+disabled = true
+text = "D"
+
+[node name="Button5" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=903489803]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("3_1euqw")
+theme_type_variation = &"2_Round"
+disabled = true
+text = "S"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=1279153866]
+layout_mode = 2
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxEmpty_uoil6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=522914745]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TableFixed" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1094764412 instance=ExtResource("1_so1t7")]
+layout_mode = 2
+
+[node name="TableCol" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=307868881 instance=ExtResource("1_xa0as")]
+unique_name_in_owner = true
+layout_mode = 2
+col_type = 1
+
+[node name="TableCol2" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=412729055 instance=ExtResource("1_xa0as")]
+unique_name_in_owner = true
+layout_mode = 2
+col_type = 2
+
+[node name="TableCol3" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=404469270 instance=ExtResource("1_xa0as")]
+unique_name_in_owner = true
+layout_mode = 2
+col_type = 3
+
+[node name="TableCol4" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1607313453 instance=ExtResource("1_xa0as")]
+unique_name_in_owner = true
+layout_mode = 2
+col_type = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1726390819]
+layout_mode = 2
+
+[node name="F" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1117073804]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("3_1euqw")
+theme_type_variation = &"4_Bottom_Rounded"
+icon = ExtResource("6_an7fc")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=854115825]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_1euqw")
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2/Panel" unique_id=967462174]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_1euqw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2/Panel/CenterContainer" unique_id=1361034364]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/Panel/CenterContainer/HBoxContainer" unique_id=1061736804]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "TOTAL GERAL"
+
+[node name="TotalGeral" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2/Panel/CenterContainer/HBoxContainer" unique_id=325337907]
+custom_minimum_size = Vector2(60, 21)
+layout_mode = 2
+theme = ExtResource("3_1euqw")
+theme_type_variation = &"2_Round"
+disabled = true
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/Panel/CenterContainer/HBoxContainer" unique_id=299601108]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "PONTOS"

@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://ti7uav4ed65s"]
+
+[ext_resource type="PackedScene" uid="uid://cjv7pxioantob" path="res://scenes/Board.tscn" id="1_elqb8"]
+[ext_resource type="Script" uid="uid://dxyfwbt2i4uyi" path="res://scripts/main.gd" id="1_rvslj"]
+[ext_resource type="PackedScene" uid="uid://dgrjmmmp27flo" path="res://scenes/Table.tscn" id="2_0bbpv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0bbpv"]
+content_margin_left = 30.0
+content_margin_top = 10.0
+content_margin_right = 30.0
+content_margin_bottom = 10.0
+bg_color = Color(0.21176471, 0.3529412, 1, 0.6039216)
+border_color = Color(2.7434528e-06, 0, 0.6468369, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 1.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0bbpv"]
+
+[sub_resource type="Gradient" id="Gradient_rarhs"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.70481926)
+colors = PackedColorArray(0.21176471, 0.3529412, 1, 0.6039216, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vcsgt"]
+gradient = SubResource("Gradient_rarhs")
+width = 30
+height = 30
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Main" type="Control" unique_id=67225423]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_rvslj")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=318735448]
+physics_interpolation_mode = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=2028396781]
+handle_input_locally = false
+physics_object_picking = true
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Board" parent="SubViewportContainer/SubViewport" unique_id=306614460 instance=ExtResource("1_elqb8")]
+unique_name_in_owner = true
+
+[node name="FoldableContainer" type="FoldableContainer" parent="." unique_id=1317262905]
+layout_mode = 1
+offset_right = 24.0
+offset_bottom = 32.0
+title = "Tabela"
+title_alignment = 1
+
+[node name="Table" parent="FoldableContainer" unique_id=1059167151 instance=ExtResource("2_0bbpv")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1921343140]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_right = 64.0
+offset_bottom = 51.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 20
+
+[node name="RollButton" type="Button" parent="MarginContainer" unique_id=1699821185]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_0bbpv")
+text = "JOGAR"
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1564698263]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 20
+
+[node name="Roll1" type="Sprite2D" parent="MarginContainer2" unique_id=1813640561]
+visible = false
+material = SubResource("CanvasItemMaterial_0bbpv")
+position = Vector2(-20, 0)
+texture = SubResource("GradientTexture2D_vcsgt")
+
+[node name="Roll2" type="Sprite2D" parent="MarginContainer2" unique_id=1465987457]
+visible = false
+material = SubResource("CanvasItemMaterial_0bbpv")
+position = Vector2(20, 0)
+texture = SubResource("GradientTexture2D_vcsgt")
+
+[node name="Roll3" type="Sprite2D" parent="MarginContainer2" unique_id=1786205158]
+visible = false
+material = SubResource("CanvasItemMaterial_0bbpv")
+position = Vector2(60, 0)
+texture = SubResource("GradientTexture2D_vcsgt")
+
+[connection signal="pressed" from="MarginContainer/RollButton" to="." method="_on_button_pressed"]

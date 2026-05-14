@@ -1,0 +1,55 @@
+[gd_resource type="Theme" format=3 uid="uid://brxpgotclekwq"]
+
+[ext_resource type="StyleBox" uid="uid://c24kngufxlukw" path="res://styles/square.tres" id="1_p71al"]
+[ext_resource type="StyleBox" uid="uid://ciihms68qfmyd" path="res://styles/bottom-rounded.tres" id="1_w2odd"]
+[ext_resource type="StyleBox" uid="uid://jnglrnvfh7r4" path="res://styles/rounded.tres" id="2_gjbd8"]
+[ext_resource type="StyleBox" uid="uid://b7uhw618084a5" path="res://styles/top-rounded.tres" id="3_n8mv6"]
+[ext_resource type="StyleBox" uid="uid://cigsr4jciltk5" path="res://styles/top-left-rounded.tres" id="4_4cci6"]
+[ext_resource type="StyleBox" uid="uid://dogejs1oikk0u" path="res://styles/top-right-rounded.tres" id="5_g0amf"]
+
+[resource]
+default_font_size = 12
+2_Round/base_type = &"Button"
+2_Round/styles/disabled = ExtResource("2_gjbd8")
+2_Round/styles/focus = ExtResource("2_gjbd8")
+2_Round/styles/hover = ExtResource("2_gjbd8")
+2_Round/styles/normal = ExtResource("2_gjbd8")
+2_Round/styles/pressed = ExtResource("2_gjbd8")
+3_Top_Rounded/base_type = &"Button"
+3_Top_Rounded/styles/disabled = ExtResource("3_n8mv6")
+3_Top_Rounded/styles/focus = ExtResource("3_n8mv6")
+3_Top_Rounded/styles/hover = ExtResource("3_n8mv6")
+3_Top_Rounded/styles/normal = ExtResource("3_n8mv6")
+3_Top_Rounded/styles/pressed = ExtResource("3_n8mv6")
+4_Bottom_Rounded/base_type = &"Button"
+4_Bottom_Rounded/styles/disabled = ExtResource("1_w2odd")
+4_Bottom_Rounded/styles/focus = ExtResource("1_w2odd")
+4_Bottom_Rounded/styles/hover = ExtResource("1_w2odd")
+4_Bottom_Rounded/styles/normal = ExtResource("1_w2odd")
+4_Bottom_Rounded/styles/pressed = ExtResource("1_w2odd")
+5_Top_Left_Rounded/base_type = &"Button"
+5_Top_Left_Rounded/styles/disabled = ExtResource("4_4cci6")
+5_Top_Left_Rounded/styles/focus = ExtResource("4_4cci6")
+5_Top_Left_Rounded/styles/hover = ExtResource("4_4cci6")
+5_Top_Left_Rounded/styles/normal = ExtResource("4_4cci6")
+5_Top_Left_Rounded/styles/pressed = ExtResource("4_4cci6")
+6_Top_Right_Rounded/base_type = &"Button"
+6_Top_Right_Rounded/styles/disabled = ExtResource("5_g0amf")
+6_Top_Right_Rounded/styles/focus = ExtResource("5_g0amf")
+6_Top_Right_Rounded/styles/hover = ExtResource("5_g0amf")
+6_Top_Right_Rounded/styles/normal = ExtResource("5_g0amf")
+6_Top_Right_Rounded/styles/pressed = ExtResource("5_g0amf")
+Button/colors/font_color = Color(0, 0, 1, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 1, 1)
+Button/colors/font_hover_color = Color(0, 0, 1, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 1, 1)
+Button/colors/font_pressed_color = Color(0, 0, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/font_sizes/font_size = 12
+Button/styles/disabled = ExtResource("1_p71al")
+Button/styles/focus = ExtResource("1_p71al")
+Button/styles/hover = ExtResource("1_p71al")
+Button/styles/normal = ExtResource("1_p71al")
+Button/styles/pressed = ExtResource("1_p71al")
+Panel/styles/panel = ExtResource("1_w2odd")

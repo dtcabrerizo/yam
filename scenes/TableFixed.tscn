@@ -1,0 +1,300 @@
+[gd_scene format=3 uid="uid://bulrcsavnu0hq"]
+
+[ext_resource type="Theme" uid="uid://brxpgotclekwq" path="res://styles/table_theme.tres" id="1_y4cuk"]
+
+[node name="TableFixed" type="VBoxContainer" unique_id=1094764412]
+offset_right = 60.0
+offset_bottom = 25.0
+theme_override_constants/separation = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=516863010]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=744816291]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Left" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1512988372]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+theme_type_variation = &"5_Top_Left_Rounded"
+disabled = true
+text = "2"
+
+[node name="Right" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1638732313]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+theme_type_variation = &"6_Top_Right_Rounded"
+disabled = true
+text = "1"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=338010044]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Left" type="Button" parent="VBoxContainer/HBoxContainer2" unique_id=1272316689]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+disabled = true
+text = "4"
+
+[node name="Right" type="Button" parent="VBoxContainer/HBoxContainer2" unique_id=1627911075]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+disabled = true
+text = "2"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer" unique_id=1866497141]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Left" type="Button" parent="VBoxContainer/HBoxContainer3" unique_id=1605497357]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+disabled = true
+text = "9"
+
+[node name="Right" type="Button" parent="VBoxContainer/HBoxContainer3" unique_id=1654692447]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+disabled = true
+text = "3"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer" unique_id=977535271]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Left" type="Button" parent="VBoxContainer/HBoxContainer4" unique_id=1048321371]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+disabled = true
+text = "12"
+
+[node name="Right" type="Button" parent="VBoxContainer/HBoxContainer4" unique_id=825593499]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+disabled = true
+text = "4"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer" unique_id=1049416803]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Left" type="Button" parent="VBoxContainer/HBoxContainer5" unique_id=1125443511]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+disabled = true
+text = "15"
+
+[node name="Right" type="Button" parent="VBoxContainer/HBoxContainer5" unique_id=314584593]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+disabled = true
+text = "5"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer" unique_id=1684470988]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Left" type="Button" parent="VBoxContainer/HBoxContainer6" unique_id=365898177]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+disabled = true
+text = "18"
+
+[node name="Right" type="Button" parent="VBoxContainer/HBoxContainer6" unique_id=528561958]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+disabled = true
+text = "6"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1184310727]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Total1" type="Button" parent="VBoxContainer2" unique_id=647682733]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+disabled = true
+text = "1° TOTAL"
+
+[node name="Bonus" type="Button" parent="VBoxContainer2" unique_id=2034845725]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+theme_override_font_sizes/font_size = 7
+disabled = true
+text = "BONUS
++30 PTOS"
+
+[node name="Total2" type="Button" parent="VBoxContainer2" unique_id=14286786]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+disabled = true
+text = "2° TOTAL"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="." unique_id=678467137]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer3" unique_id=284502982]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Left" type="Button" parent="VBoxContainer3/HBoxContainer" unique_id=399453963]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+disabled = true
+text = "20"
+
+[node name="Right" type="Button" parent="VBoxContainer3/HBoxContainer" unique_id=398678466]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+disabled = true
+text = "Q"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer3" unique_id=742011162]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Left" type="Button" parent="VBoxContainer3/HBoxContainer2" unique_id=2034869770]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+disabled = true
+text = "30"
+
+[node name="Right" type="Button" parent="VBoxContainer3/HBoxContainer2" unique_id=1750265579]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+disabled = true
+text = "F"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer3" unique_id=2059658771]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Left" type="Button" parent="VBoxContainer3/HBoxContainer3" unique_id=2140390099]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+disabled = true
+text = "35"
+
+[node name="Right" type="Button" parent="VBoxContainer3/HBoxContainer3" unique_id=582652581]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+disabled = true
+text = "S-"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer3" unique_id=677513161]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Left" type="Button" parent="VBoxContainer3/HBoxContainer4" unique_id=798668470]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+disabled = true
+text = "40"
+
+[node name="Right" type="Button" parent="VBoxContainer3/HBoxContainer4" unique_id=1493254430]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+disabled = true
+text = "S+"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer3" unique_id=372765774]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Left" type="Button" parent="VBoxContainer3/HBoxContainer5" unique_id=1502521994]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+disabled = true
+text = "X"
+
+[node name="Right" type="Button" parent="VBoxContainer3/HBoxContainer5" unique_id=1974975136]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+disabled = true
+text = "MIN"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer3" unique_id=1777901410]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Left" type="Button" parent="VBoxContainer3/HBoxContainer6" unique_id=1871669963]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+disabled = true
+text = "X"
+
+[node name="Right" type="Button" parent="VBoxContainer3/HBoxContainer6" unique_id=571870143]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+disabled = true
+text = "MAX"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="VBoxContainer3" unique_id=1913590670]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Left" type="Button" parent="VBoxContainer3/HBoxContainer7" unique_id=1645977770]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+disabled = true
+text = "50"
+
+[node name="Right" type="Button" parent="VBoxContainer3/HBoxContainer7" unique_id=908685272]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+disabled = true
+text = "YAM"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="." unique_id=987664620]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Total3" type="Button" parent="VBoxContainer4" unique_id=1556625050]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+disabled = true
+text = "3° TOTAL"
+
+[node name="Total4" type="Button" parent="VBoxContainer4" unique_id=961548252]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("1_y4cuk")
+theme_override_font_sizes/font_size = 7
+disabled = true
+text = "2° + 3° 
+TOTAL"
+autowrap_mode = 2

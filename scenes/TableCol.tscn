@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://bq4cvohpn63u0"]
+
+[ext_resource type="Script" uid="uid://cssplb3k1oybf" path="res://scripts/table_col.gd" id="1_b6phk"]
+[ext_resource type="Theme" uid="uid://brxpgotclekwq" path="res://styles/table_theme.tres" id="1_b13sx"]
+
+[node name="TableCol" type="VBoxContainer" unique_id=1094764412]
+offset_right = 60.0
+offset_bottom = 470.0
+theme_override_constants/separation = 2
+script = ExtResource("1_b6phk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=516863010]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="1" type="Button" parent="VBoxContainer" unique_id=1440813341]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("1_b13sx")
+theme_type_variation = &"3_Top_Rounded"
+
+[node name="2" type="Button" parent="VBoxContainer" unique_id=567067511]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("1_b13sx")
+
+[node name="3" type="Button" parent="VBoxContainer" unique_id=91391198]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("1_b13sx")
+
+[node name="4" type="Button" parent="VBoxContainer" unique_id=285425988]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("1_b13sx")
+
+[node name="5" type="Button" parent="VBoxContainer" unique_id=1512988372]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("1_b13sx")
+
+[node name="6" type="Button" parent="VBoxContainer" unique_id=1638732313]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("1_b13sx")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1184310727]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Total1" type="Button" parent="VBoxContainer2" unique_id=647682733]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("1_b13sx")
+
+[node name="Bonus" type="Button" parent="VBoxContainer2" unique_id=2034845725]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("1_b13sx")
+
+[node name="Total2" type="Button" parent="VBoxContainer2" unique_id=14286786]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("1_b13sx")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="." unique_id=2144610034]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Q" type="Button" parent="VBoxContainer3" unique_id=767472176]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("1_b13sx")
+
+[node name="F" type="Button" parent="VBoxContainer3" unique_id=829819663]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("1_b13sx")
+
+[node name="S-" type="Button" parent="VBoxContainer3" unique_id=800533356]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("1_b13sx")
+
+[node name="S+" type="Button" parent="VBoxContainer3" unique_id=1194591204]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("1_b13sx")
+
+[node name="MIN" type="Button" parent="VBoxContainer3" unique_id=496961077]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("1_b13sx")
+
+[node name="MAX" type="Button" parent="VBoxContainer3" unique_id=1118715939]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("1_b13sx")
+
+[node name="YAM" type="Button" parent="VBoxContainer3" unique_id=1755497450]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("1_b13sx")
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="." unique_id=987664620]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Total3" type="Button" parent="VBoxContainer4" unique_id=1556625050]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("1_b13sx")
+
+[node name="Total4" type="Button" parent="VBoxContainer4" unique_id=961548252]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme = ExtResource("1_b13sx")
