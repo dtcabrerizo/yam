@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bx80uxddvg1nm"
-path="res://.godot/imported/YAM.icon.png-916bfb16257781e3e3a9adc3fd5b8619.ctex"
+path="res://.godot/imported/YAM.icon.png-dd4bbf8d67c3bf09db66585b59c2a87f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://build/YAM.icon.png"
-dest_files=["res://.godot/imported/YAM.icon.png-916bfb16257781e3e3a9adc3fd5b8619.ctex"]
+source_file="res://docs/YAM.icon.png"
+dest_files=["res://.godot/imported/YAM.icon.png-dd4bbf8d67c3bf09db66585b59c2a87f.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgnooc2cdo8li"
-path="res://.godot/imported/YAM.png-db704f11cd6fc18d12867a95e46f750f.ctex"
+path="res://.godot/imported/YAM.png-2401b2b1159ad39443b59306dcc8baf3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://build/YAM.png"
-dest_files=["res://.godot/imported/YAM.png-db704f11cd6fc18d12867a95e46f750f.ctex"]
+source_file="res://docs/YAM.png"
+dest_files=["res://.godot/imported/YAM.png-2401b2b1159ad39443b59306dcc8baf3.ctex"]
 
 [params]
 
