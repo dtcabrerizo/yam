@@ -33,18 +33,13 @@ enum ColType {
 	$VBoxContainer2/Bonus,
 	$VBoxContainer2/Total2
 ]
+@onready var lower_total_cells: Array[Button] = [ $VBoxContainer4/Total3, $VBoxContainer4/Total4 ]
 
 @export var col_type: ColType 
 
 var upper_total: int = -1
 var lower_total: int = -1
-
-var total: int:
-	get():
-		if upper_total >= 0 and lower_total >= 0:			
-			return upper_total + lower_total
-		else:
-			return 0
+var total: int = -1
 
 signal cell_clicked(col: TableCol, cell_id: int)
 
@@ -102,7 +97,7 @@ func _calculate_min_max(dice: Array) -> Array[int]:
 func _get_current_cell() -> int:
 	var test: Callable = func (cell): return cell.text == ""
 	if col_type == ColType.Down: return cells.find_custom(test)
-	if col_type == ColType.Up: return cells.size() - cells.find_custom(test) - 1
+	if col_type == ColType.Up: return cells.rfind_custom(test)
 	return -1
 
 func _get_candidates(history: Array[Array]) -> Array[int]:
@@ -113,31 +108,42 @@ func _get_candidates(history: Array[Array]) -> Array[int]:
 	if history.size() == 0: return ret
 	if history.size() > 1 and col_type == ColType.Straight: return ret
 	
+	var set_or_zero = func(id, value): 
+		if cells[id].text == "": return value
+		return 0	
+	
 	var dice: Array = history[-1]
 	
 	ret.clear()
 	# 1..6
 	for num: int in range(6):
 		var cell: Button = cells[num]
-		var value: int = _calculate_num(dice, num + 1)
+		var value: int = set_or_zero.call(num, _calculate_num(dice, num + 1))
 		if cell.text != "": value = 0
 		ret.append(value)
+	
+
 	# Q
-	ret.append(_calculate_equal(dice, 4, 20))		
+	ret.append(set_or_zero.call(6, _calculate_equal(dice, 4, 20)))
 	# F
-	ret.append(_calculate_seq(dice, true, [2,3], 30))		
+	ret.append(set_or_zero.call(7, _calculate_seq(dice, true, [2,3], 30)))
 	# S-
-	ret.append(_calculate_seq(dice, false, [1,1,1,1,1,0], 35))
+	ret.append(set_or_zero.call(8, _calculate_seq(dice, false, [1,1,1,1,1,0], 35)))
 	# S+
-	ret.append(_calculate_seq(dice, false, [0,1,1,1,1,1], 40))
-	ret.append_array(_calculate_min_max(dice))		
+	ret.append(set_or_zero.call(9, _calculate_seq(dice, false, [0,1,1,1,1,1], 40)))
+	# MIN and MAX
+	var min_max: Array[int] = _calculate_min_max(dice)
+	ret.append(set_or_zero.call(10, min_max[0]))
+	ret.append(set_or_zero.call(11, min_max[1]))		
+			
 	# Yam
-	ret.append(_calculate_equal(dice, 5, 50))
+	ret.append(set_or_zero.call(12, _calculate_equal(dice, 5, 50)))
 	
 	var current_cell: int = _get_current_cell()
-	for item in ret.size():
-		if current_cell != -1 and current_cell != item:
-			ret[item] = 0
+	for id in ret.size():
+			
+		if current_cell != -1 and current_cell != id:
+			ret[id] = 0
 	
 	return ret 
 	
@@ -155,6 +161,7 @@ func clear_candidates() -> void:
 		cell.modulate = Color.WHITE
 	
 func set_value(id: int, history: Array[Array]) -> int:
+	if (cells[id].text != ""): return -1
 	var candidates: Array[int] = _get_candidates(history)
 	var value: int = candidates[id]
 	var cell: Button = cells[id]	
@@ -166,24 +173,32 @@ func set_value(id: int, history: Array[Array]) -> int:
 	return value
 
 func _get_upper_cells() -> Array[Button]:
-	return [0, 1, 2, 3, 4, 5].map(func (i): return cells[i])
+	var arr: Array[Button] = []
+	for i in [0, 1, 2, 3, 4, 5]: 
+		arr.append(cells[i])
+	return arr
 
 func _get_lower_cells() -> Array[Button]:
-	return [6, 7, 8, 9, 10, 11, 12].map(func (i): return cells[i])
-
+	var arr: Array[Button] = []
+	for i in [6, 7, 8, 9, 10, 11, 12]: 
+		arr.append(cells[i]) 
+	return arr
 func is_upper_finished() -> bool:
-	return _get_upper_cells().any(func (cell): return cell.text == "")
+	return ! _get_upper_cells().any(func (cell): return cell.text == "")
 	
 func is_lower_finished() -> bool:
-	return _get_lower_cells().any(func (cell): return cell.text == "")
+	return ! _get_lower_cells().any(func (cell): return cell.text == "")
+
+func _sum_cells(cells: Array[Button]) -> int:
+	return cells.reduce(func(acc, cell): 
+		acc = acc + int(cell.text)
+		return acc
+	, 0)
 
 func calculate_upper_total() -> void: 
 	if !is_upper_finished(): return
 	var bonus: int = 0
-	var first: int = _get_upper_cells().reduce(func(acc, cell): 
-		acc = acc + int(cell.text)
-		return acc
-	)
+	var first: int = _sum_cells(_get_upper_cells())
 	if first >= 60: bonus = 30
 	upper_total = first + bonus
 	
@@ -192,4 +207,11 @@ func calculate_upper_total() -> void:
 	upper_total_cells[2].text = str(upper_total)
 	
 func calculate_lower_total() -> void: 
-	pass
+	if !is_lower_finished(): return
+	
+	lower_total = _sum_cells(_get_lower_cells())
+	lower_total_cells[0].text = str(lower_total)
+	
+	if is_upper_finished():
+		total = upper_total + lower_total
+		lower_total_cells[1].text = str(total)

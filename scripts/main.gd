@@ -25,7 +25,8 @@ func _ready() -> void:
 func _on_table_cell_clicked(col: TableCol, cell_id: int) -> void:
 	if state == GameState.ROLLING or history.size() == 0: return
 	var ret: int = table.set_value(col, cell_id, history)
-	_next_turn()
+	if ret >= 0:
+		_next_turn()
 	
 func _update_rolls() -> void:
 	for i: int in range(3):

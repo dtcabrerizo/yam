@@ -47,6 +47,10 @@ script = ExtResource("2_7e6ia")
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1012392878]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+current = true
+
+[node name="AudioListener3D" type="AudioListener3D" parent="CameraPivot/Camera3D" unique_id=986420658]
+current = true
 
 [node name="Base" type="StaticBody3D" parent="." unique_id=1885963927]
 physics_material_override = SubResource("PhysicsMaterial_iyx0m")

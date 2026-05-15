@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://c3l88ppjha6mm"]
 
 [ext_resource type="Script" uid="uid://b5y7v1ux4i746" path="res://scripts/die.gd" id="1_yax6l"]
+[ext_resource type="AudioStream" uid="uid://dvtwhh6ops2p7" path="res://sounds/freesound_community-dice-95077.mp3" id="2_tyyvc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ic6ol"]
 
@@ -53,6 +54,8 @@ shadow_mesh = SubResource("ArrayMesh_xj3ft")
 collision_layer = 3
 physics_material_override = SubResource("PhysicsMaterial_ic6ol")
 gravity_scale = 2.0
+contact_monitor = true
+max_contacts_reported = 2
 script = ExtResource("1_yax6l")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=803757982]
@@ -64,3 +67,8 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 [node name="Cube" type="MeshInstance3D" parent="Shape" unique_id=615774207]
 layers = 2
 mesh = SubResource("ArrayMesh_8dkk3")
+
+[node name="SoundHit" type="AudioStreamPlayer3D" parent="." unique_id=2028958162]
+stream = ExtResource("2_tyyvc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

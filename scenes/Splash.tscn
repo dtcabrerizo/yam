@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bguauekdeggwy"]
+
+[ext_resource type="Script" uid="uid://5wylxd70hfu" path="res://scripts/splash.gd" id="1_y4yub"]
+
+[sub_resource type="Gradient" id="Gradient_necka"]
+colors = PackedColorArray(0.4550764, 0.25513187, 4.813075e-08, 1, 1, 0.5176471, 0.34509805, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y4yub"]
+gradient = SubResource("Gradient_necka")
+fill_from = Vector2(0.47863248, 1)
+fill_to = Vector2(0.44017094, 0.008547009)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_necka"]
+load_path = "res://.godot/imported/YamCover.png-edf625c09560226251f9aa1536efbdf6.ctex"
+
+[node name="Splash" type="Control" unique_id=1212364939]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y4yub")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=293441203]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_y4yub")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1291563930]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1156071866]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=526660887]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("CompressedTexture2D_necka")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer" unique_id=635685068]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+rounded = true
+show_percentage = false

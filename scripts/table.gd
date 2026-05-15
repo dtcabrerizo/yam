@@ -7,6 +7,10 @@ class_name Table
 	%TableCol3, 
 	%TableCol4
 ]
+@onready var total_geral: Button = %TotalGeral
+@onready var sound_write: AudioStreamPlayer2D = $SoundWrite
+
+var total: int = -1
 
 signal cell_clicked(col: TableCol, cell_id: int)
 
@@ -25,6 +29,21 @@ func clear_candidates() -> void:
 	for col: TableCol in cols:
 		col.clear_candidates()
 
-
+func _calculate_total() -> void:
+	var calc_total: int = 0
+	for col: TableCol in cols:
+		if col.total >= 0:
+			calc_total += col.total
+		else:
+			return	
+	
+	total = calc_total
+	total_geral.text = str(total)	
+	
 func set_value(col: TableCol, cell_id: int, history: Array[Array]) -> int:
-	return col.set_value(cell_id, history)
+	var value = col.set_value(cell_id, history)
+	if value >= 0:
+		sound_write.pitch_scale = randf_range(0.9, 1.1)
+		sound_write.play()
+		_calculate_total()
+	return value

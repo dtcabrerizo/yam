@@ -10,6 +10,7 @@ var value: int = 0
 @export var tolerance: float = 0.95 
 
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
+@onready var sound_hit: AudioStreamPlayer3D = $SoundHit
 
 signal roll_finished(die: Die3D, value: int) 
 signal die_selected(die: Die3D)
@@ -143,3 +144,13 @@ func move_to_position(target: Vector3) -> void:
 		enable_collision()
 		freeze = false
 	)
+
+
+func _on_body_entered(body: Node) -> void:
+	var force: float = linear_velocity.length()
+	if force > 0.5:
+		var volume = remap(force, 0.5, 10.0, -20.0, 0.0)
+		sound_hit.volume_db = volume
+		# Adiciona uma leve variação de pitch para o som não ser repetitivo (naturalidade)
+		sound_hit.pitch_scale = randf_range(0.9, 1.1)
+		sound_hit.play()

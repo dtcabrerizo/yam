@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="YAM"
-run/main_scene="uid://ti7uav4ed65s"
+run/main_scene="uid://bguauekdeggwy"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/aspect="ignore"
 
 [physics]
 

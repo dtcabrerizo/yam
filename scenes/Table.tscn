@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://brxpgotclekwq" path="res://styles/table_theme.tres" id="3_1euqw"]
 [ext_resource type="Texture2D" uid="uid://cr3sehoulq4d7" path="res://images/ArrowUp.png" id="3_an7fc"]
 [ext_resource type="Texture2D" uid="uid://18210rxdk0qy" path="res://images/ArrowRight.png" id="6_an7fc"]
+[ext_resource type="AudioStream" uid="uid://c0ulflq68evoi" path="res://sounds/freesound_community-check-83184-cut.mp3" id="8_oiyp4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uoil6"]
 
@@ -142,6 +143,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "TOTAL GERAL"
 
 [node name="TotalGeral" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2/Panel/CenterContainer/HBoxContainer" unique_id=325337907]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 21)
 layout_mode = 2
 theme = ExtResource("3_1euqw")
@@ -152,3 +154,6 @@ disabled = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "PONTOS"
+
+[node name="SoundWrite" type="AudioStreamPlayer2D" parent="." unique_id=529203177]
+stream = ExtResource("8_oiyp4")
