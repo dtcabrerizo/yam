@@ -6,6 +6,7 @@ extends Control
 	%Roll1, %Roll2, %Roll3
 ]
 @onready var foldable_container: FoldableContainer = $FoldableContainer
+@onready var roll_button_container: MarginContainer = $MarginContainer2
 
 
 enum GameState {
@@ -25,18 +26,21 @@ func _ready() -> void:
 	
 	var os: String = OS.get_name()
 	if os == "Windows":
-		foldable_container.set_anchors_preset(Control.PRESET_TOP_LEFT)
-		foldable_container.set_offsets_preset(Control.PRESET_TOP_LEFT)
-		foldable_container.queue_sort()
+		pass
 	elif os == "Web":
 		var browser_width = JavaScriptBridge.eval("window.innerWidth")
 		if browser_width > 900:
-			foldable_container.set_anchors_preset(Control.PRESET_TOP_LEFT)
-			foldable_container.set_offsets_preset(Control.PRESET_TOP_LEFT)
+			pass
+		else:
+			print("ESCALANDO")
+			foldable_container.scale = Vector2(4.25, 4.25)
 			foldable_container.queue_sort()
-			
-	
-	
+			foldable_container.folded = true
+			roll_button_container.scale = Vector2(4.25, 4.25)
+			roll_button_container.queue_sort()
+			board.camera.move_camera(Vector3(6.0, 9.0, -0.4), 18.0)
+
+
 func _on_window_resized() -> void:
 	pass
 	#print("New Size: ", window_size, " <- ", $FoldableContainer.size)

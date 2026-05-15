@@ -1,4 +1,5 @@
 extends Node3D
+class_name CustomCamera
 
 @export var rotate_speed := 0.01
 @export var pan_speed := 0.05
@@ -65,3 +66,11 @@ func reset_view():
 	global_position = default_position
 	rotation = default_rotation
 	camera.position.z = default_zoom
+
+func move_camera(position: Vector3, zoom: float) -> void: 
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_LINEAR)
+	tween.set_parallel()
+	tween.tween_property(self, "global_position", position, 1.0)
+	tween.tween_property(camera, "position:z", zoom, 1.0)
+	

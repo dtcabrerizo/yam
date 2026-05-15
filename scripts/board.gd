@@ -4,6 +4,7 @@ class_name Board
 @onready var Die_Scene: PackedScene = preload("res://scenes/Die.tscn")
 @onready var dice_container: Node3D = $DiceContainer
 @onready var reserve_marker: Marker3D = $Reserve/ReserveMarker
+@onready var camera: CustomCamera = $CameraPivot
 
 signal roll_finished(result: Array[int]) 
 

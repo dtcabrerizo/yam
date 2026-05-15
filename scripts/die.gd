@@ -148,7 +148,8 @@ func move_to_position(target: Vector3) -> void:
 
 func _on_body_entered(body: Node) -> void:
 	var force: float = linear_velocity.length()
-	if force > 0.5:
+	print("Force,", force)
+	if force > 2.1:
 		var volume = remap(force, 0.5, 10.0, -20.0, 0.0)
 		sound_hit.volume_db = volume
 		# Adiciona uma leve variação de pitch para o som não ser repetitivo (naturalidade)
