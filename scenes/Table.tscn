@@ -120,8 +120,8 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=854115825]
+custom_minimum_size = Vector2(252, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 theme = ExtResource("3_1euqw")
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2/Panel" unique_id=967462174]
