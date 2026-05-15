@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bguauekdeggwy"]
 
 [ext_resource type="Script" uid="uid://5wylxd70hfu" path="res://scripts/splash.gd" id="1_y4yub"]
+[ext_resource type="Texture2D" uid="uid://dlodgdbnnbbnf" path="res://images/YamCover.png" id="2_ad0hg"]
 
 [sub_resource type="Gradient" id="Gradient_necka"]
 colors = PackedColorArray(0.4550764, 0.25513187, 4.813075e-08, 1, 1, 0.5176471, 0.34509805, 1)
@@ -9,9 +10,6 @@ colors = PackedColorArray(0.4550764, 0.25513187, 4.813075e-08, 1, 1, 0.5176471, 
 gradient = SubResource("Gradient_necka")
 fill_from = Vector2(0.47863248, 1)
 fill_to = Vector2(0.44017094, 0.008547009)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_necka"]
-load_path = "res://.godot/imported/YamCover.png-edf625c09560226251f9aa1536efbdf6.ctex"
 
 [node name="Splash" type="Control" unique_id=1212364939]
 layout_mode = 3
@@ -49,10 +47,9 @@ theme_override_constants/separation = 20
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=526660887]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
-texture = SubResource("CompressedTexture2D_necka")
+texture = ExtResource("2_ad0hg")
 expand_mode = 2
 stretch_mode = 5
 

@@ -47,7 +47,7 @@ func _on_roll_finished(dice: Array[int]) -> void:
 
 	_update_visuals()
 
-func _on_button_pressed() -> void:
+func _on_roll_button_pressed() -> void:
 	if board.can_roll():
 		state = GameState.ROLLING
 		_update_visuals()

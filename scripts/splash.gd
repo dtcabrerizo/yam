@@ -7,6 +7,7 @@ extends Control
 @onready var main_scene: PackedScene = preload("res://scenes/Main.tscn")
 
 func _ready() -> void:
+	texture_rect.modulate.a = 0.0
 	var tween: Tween = create_tween()
 	tween.set_parallel(true)
 	tween.set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)	
