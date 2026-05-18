@@ -15,7 +15,11 @@ run/main_scene="uid://ti7uav4ed65s"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/image="uid://cpy0syvmibet7"
 config/icon="uid://5i7xmvj6cc0t"
-boot_splash/minimum_display_time=5000
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [physics]
 

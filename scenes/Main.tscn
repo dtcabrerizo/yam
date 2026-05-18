@@ -132,15 +132,23 @@ stretch_mode = 4
 [node name="FoldableContainer" type="FoldableContainer" parent="." unique_id=1317262905]
 custom_minimum_size = Vector2(326, 504)
 layout_mode = 1
-offset_right = 343.0
-offset_bottom = 543.0
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 334.0
+grow_vertical = 2
+focus_mode = 0
 title = "Tabela"
 title_alignment = 1
 
-[node name="Table" parent="FoldableContainer" unique_id=1059167151 instance=ExtResource("2_0bbpv")]
-unique_name_in_owner = true
+[node name="ScrollContainer" type="ScrollContainer" parent="FoldableContainer" unique_id=114712199]
+custom_minimum_size = Vector2(326, 504)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+
+[node name="Table" parent="FoldableContainer/ScrollContainer" unique_id=1059167151 instance=ExtResource("2_0bbpv")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(326, 504)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [connection signal="pressed" from="MarginContainer2/VBoxContainer/RollButton" to="." method="_on_roll_button_pressed"]

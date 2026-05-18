@@ -12,8 +12,11 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uoil6"]
 
 [node name="Table" type="PanelContainer" unique_id=1059167151]
-offset_right = 326.0
-offset_bottom = 503.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_uoil6")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1202859886]
@@ -32,10 +35,12 @@ theme_override_constants/separation = -1
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=78011734]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=956954632]
 custom_minimum_size = Vector2(60, 25)
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("3_1euqw")
 theme_type_variation = &"2_Round"
 disabled = true
@@ -44,6 +49,7 @@ text = "MPB"
 [node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=130125702]
 custom_minimum_size = Vector2(60, 25)
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("3_1euqw")
 theme_type_variation = &"2_Round"
 icon = ExtResource("2_7q8ky")
@@ -53,6 +59,7 @@ expand_icon = true
 [node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1180991065]
 custom_minimum_size = Vector2(60, 25)
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("3_1euqw")
 theme_type_variation = &"2_Round"
 icon = ExtResource("3_an7fc")
@@ -62,6 +69,7 @@ expand_icon = true
 [node name="Button4" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=971636359]
 custom_minimum_size = Vector2(60, 25)
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("3_1euqw")
 theme_type_variation = &"2_Round"
 disabled = true
@@ -70,6 +78,7 @@ text = "D"
 [node name="Button5" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=903489803]
 custom_minimum_size = Vector2(60, 25)
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("3_1euqw")
 theme_type_variation = &"2_Round"
 disabled = true
@@ -82,37 +91,46 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_uoil6")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=522914745]
 layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 18.0
 theme_override_constants/separation = 4
 
 [node name="TableFixed" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1094764412 instance=ExtResource("1_so1t7")]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="TableCol" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=307868881 instance=ExtResource("1_xa0as")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 col_type = 1
 
 [node name="TableCol2" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=412729055 instance=ExtResource("1_xa0as")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 col_type = 2
 
 [node name="TableCol3" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=404469270 instance=ExtResource("1_xa0as")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 col_type = 3
 
 [node name="TableCol4" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1607313453 instance=ExtResource("1_xa0as")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 col_type = 4
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1726390819]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="F" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1117073804]
 custom_minimum_size = Vector2(60, 25)
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("3_1euqw")
 theme_type_variation = &"4_Bottom_Rounded"
 icon = ExtResource("6_an7fc")
@@ -122,6 +140,8 @@ expand_icon = true
 [node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=854115825]
 custom_minimum_size = Vector2(252, 0)
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.0
 theme = ExtResource("3_1euqw")
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2/Panel" unique_id=967462174]
