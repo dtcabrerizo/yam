@@ -1,6 +1,9 @@
 extends Node3D
 class_name CustomCamera
 
+@onready var camera := $Camera3D
+
+# Camera parameters
 @export var rotate_speed := 0.01
 @export var pan_speed := 0.05
 @export var zoom_speed := 1.0
@@ -8,47 +11,53 @@ class_name CustomCamera
 @export var min_zoom := -7.0
 @export var max_zoom := 20.0
 
-# --- CONFIGURAÇÕES DE TOUCH ---
-@export var touch_zoom_speed := 0.02
-var _touches := {}
-var _last_touch_count := 0 # Trava de segurança para evitar o "salto" ao levantar os dedos
+# Touch setting
+@export var touch_zoom_speed := 0.1
 
+# Touch controls
+var _touches := {}
+var _touch_changed_frame := -1 # Armazena o frame onde houve mudança no toque
+
+# Camera controls
 var rotating := false
 var panning := false
 
+# Default values
 var default_position : Vector3
 var default_rotation : Vector3
 var default_zoom : float
 
-@onready var camera := $Camera3D
-
+# Stores the default (initial) values 
 func _ready():
 	default_position = global_position
 	default_rotation = rotation
 	default_zoom = camera.position.z
 
-func _unhandled_input(event: InputEvent) -> void:
-	
-	# =========================================================================
-	# 1. CONTROLES DE MOUSE (DESKTOP) - Mantidos originais
-	# =========================================================================
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_RIGHT:
-			rotating = event.pressed
-		elif event.button_index == MOUSE_BUTTON_MIDDLE:
-			panning = event.pressed
 
+
+func _unhandled_input(event: InputEvent) -> void:
+	# Mouse Controls (DESKTOP)
+	if event is InputEventMouseButton:		
+		if event.button_index == MOUSE_BUTTON_RIGHT:
+			rotating = event.pressed # Right mouse button rotates the camera
+		elif event.button_index == MOUSE_BUTTON_MIDDLE:
+			panning = event.pressed # Middle mouse button pans the camera
+
+		# Wheel controls the zoom (by zoom_speed parameter)
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
 			zoom(-zoom_speed)
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
 			zoom(zoom_speed)
 
+	# If the mouse is moving adjust the rotation and pannig
 	if event is InputEventMouseMotion:
+		# If it is rotating, adjust the rotation of the Camera Pivot based on the rotate_speed and the relative mouse movement
 		if rotating:
 			rotation.y -= event.relative.x * rotate_speed
 			rotation.x -= event.relative.y * rotate_speed
 			rotation.x = clamp(rotation.x, deg_to_rad(-90), deg_to_rad(-10)) 
 
+		# If it is panning, adjust the global_position of the Camera Pivot based on the pan_speed and the current rotation (on Y axis)
 		if panning:
 			var yaw = rotation.y
 			var right = Vector3(cos(yaw), 0, -sin(yaw))
@@ -56,71 +65,73 @@ func _unhandled_input(event: InputEvent) -> void:
 			global_position -= right * event.relative.x * pan_speed
 			global_position -= forward * event.relative.y * pan_speed
 
-	# =========================================================================
-	# 2. CONTROLES DE TOQUE (MOBILE WEB / NATIVO) - Novos & Simplificados
-	# =========================================================================
+	# Touch Controls (MOBILE)
+	# If the event is a touch (press or release)
 	if event is InputEventScreenTouch:
+		# If the event is a new touch add the touch position to the touch ocntrols
 		if event.pressed:
 			_touches[event.index] = event.position
 		else:
+			# If the event is a touch release, remove the data of the touch controls
 			_touches.erase(event.index)
 		
-		# Atualiza a contagem imediatamente no toque/soltura para preparar a trava
-		_last_touch_count = _touches.size()
+		# Register the exact frame that the amoount of touches changed
+		_touch_changed_frame = Engine.get_frames_drawn()
 
+	# If the event is a touch move (drag)
 	if event is InputEventScreenDrag:
-		# Pega a posição anterior do dedo antes de atualizar o dicionário (usado no Zoom)
+		# Get the previous touch position before updating the touch controls
 		var prev_pos = _touches.get(event.index, event.position - event.relative)
 		_touches[event.index] = event.position
 		
-		# [SISTEMA ANTISALTO] Se a quantidade de dedos mudou neste frame (ex: tirou um dedo),
-		# nós ignoramos o movimento atual para evitar que a câmera seja teleportada.
-		if _touches.size() != _last_touch_count:
-			_last_touch_count = _touches.size()
+		# If this move (drag) is happening on the same frame that a touch ended, ignore the move (drag)
+		# this should reset the touch deltas and stop teleporting the camera
+		if Engine.get_frames_drawn() == _touch_changed_frame:
 			return
 		
-		# GESTO DE 1 DEDO: Apenas mover (Pan) a mesa
-		if _touches.size() == 1:
+		# Single touch: PAN - adjust the global_position of the Camera Pivot based on the pan_speed and the current rotation (on Y axis)
+		if _touches.size() == 1:			
 			var yaw = rotation.y
 			var right = Vector3(cos(yaw), 0, -sin(yaw))
 			var forward = Vector3(sin(yaw), 0, cos(yaw))
 			
-			# Move usando o deslocamento relativo do arrasto
 			global_position -= right * event.relative.x * pan_speed
 			global_position -= forward * event.relative.y * pan_speed
 			
-		# GESTO DE 2 DEDOS: Apenas dar Zoom (Pinch)
+		# Two touches: ZOOM - adjust the zoom based on the delta distancs of the two touches and the touch_zoom_speed
 		elif _touches.size() == 2:
 			var indices = _touches.keys()
 			var other_index = indices[1] if event.index == indices[0] else indices[0]
 			var other_pos = _touches.get(other_index, Vector2.ZERO)
 			
 			if other_pos != Vector2.ZERO:
-				# Calcula a variação de distância entre os dois dedos ativos
 				var current_dist = event.position.distance_to(other_pos)
 				var prev_dist = prev_pos.distance_to(other_pos)
 				var zoom_delta = prev_dist - current_dist
 				
 				zoom(zoom_delta * touch_zoom_speed)
-				
-		_last_touch_count = _touches.size()
 
-	# Atalho de teclado para resetar
+
+	# Shortcut (R) to reset the camera on Desktop Mode
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_R:
 			reset_view()
 
+# Apply zoom
 func zoom(amount):
+	# Change the Z positionn of the camera inside the Camer Pivot to simulate zoom by a amount
 	camera.position.z = clamp(camera.position.z + amount, min_zoom, max_zoom)
 
+# Resets the camera config to the initial values
 func reset_view():
 	global_position = default_position
 	rotation = default_rotation
 	camera.position.z = default_zoom
 
-func move_camera(position: Vector3, zoom_val: float) -> void: 
+# Animate the camera config to a position and zoom
+func move_camera(target_position: Vector3, zoom_val: float) -> void: 
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_LINEAR)
 	tween.set_parallel()
-	tween.tween_property(self, "global_position", position, 1.0)
+	tween.tween_property(self, "global_position", target_position, 1.0)
 	tween.tween_property(camera, "position:z", zoom_val, 1.0)

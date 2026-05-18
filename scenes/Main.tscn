@@ -61,14 +61,23 @@ unique_name_in_owner = true
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1921343140]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -64.0
-offset_right = 64.0
-offset_bottom = 51.0
-grow_horizontal = 2
-theme_override_constants/margin_top = 50
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -51.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=791606166]
+layout_mode = 2
+text = "V 1.0"
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1564698263]
 layout_mode = 1
